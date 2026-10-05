@@ -1,6 +1,6 @@
 # Activation Probes for Dual-Use Biology Content
 
-**Status: work in progress.** Capstone project for the TARA (Technical Alignment Research Accelerator) Sydney cohort, Sep–Dec 2026. Independent work by Vanessa Gurie. The pipeline is being built now; results will be added as they come in.
+**Status: work in progress.** Capstone project for the TARA (Technical Alignment Research Accelerator) Sydney cohort, Sep–Dec 2026. Independent work by Vanessa Gurie. Preliminary results are in. See Results section below.
 
 ## The question
 
@@ -29,15 +29,29 @@ Activation probes are one candidate for that layer. They are cheap, they can run
 
 - [x] Project scoped; prior work reviewed
 - [x] Activation extraction pipeline (GPT-2 small)
-- [ ] Dataset assembled and balanced
-- [ ] Layer-by-layer probe results
-- [ ] Paraphrase and keyword-baseline tests
+- [x] Dataset assembled and balanced (200 WMDP-bio / 200 MMLU-bio)
+- [x] Layer-by-layer probe results (AUROC 1.0 across all layers — see caveat below)
+- [x] Paraphrase and keyword-baseline tests
 - [ ] Scale-up to a larger model
 - [ ] Write-up
 
 ## Results
 
-*To be added.*
+**Probe vs keyword baseline on paraphrased dual-use questions (n=20)**
+
+| Method | Detected |
+|--------|----------|
+| Activation probe (layer 0, GPT-2 small) | 20/20 (mean confidence 0.963) |
+| Keyword filter | 14/20 |
+
+The probe detected all 20 paraphrased WMDP-bio questions, including 6 that contained no
+keywords from a standard dual-use biology keyword list. This suggests the probe is reading
+something in GPT-2's internal representations beyond surface vocabulary.
+
+**Caveat:** AUROC of 1.0 on the held-out test set indicates possible stylistic differences
+between WMDP and MMLU beyond content. The paraphrase result is the more meaningful
+generalisation test. Results on GPT-2 small may not carry to frontier models, and WMDP
+is a proxy dataset, not real uplift content.
 
 ## Known limitations
 
