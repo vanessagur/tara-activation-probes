@@ -57,8 +57,8 @@ is a proxy dataset, not real uplift content.
 
 ## Known limitations
 
-- **Input, not generation.** Version 1 detects content the model is *reading*. Monitoring what the model is *about to generate* is the harder, later step.
-- **Dataset shortcuts.** The positive and negative sets come from different sources, so a probe could learn their style instead of their meaning. The paraphrase test and matched negatives are there to check for this.
+- **Input.** Version 1 detects content the model is *reading*. Monitoring what the model is *about to generate* is the harder, later step.
+- **Dataset shortcuts.** The positive and negative sets come from different sources, so a probe could learn their style instead of their meaning. The paraphrase test and matched negatives are there to check. 
 - **Proxy data.** WMDP is a proxy for hazardous knowledge. Good results on it would not prove the probe catches real misuse.
 - **Scale.** Findings on small models may not carry over to frontier models.
 
