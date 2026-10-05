@@ -44,6 +44,7 @@ Activation probes are one candidate for that layer. They are cheap, they can run
 | Activation probe (layer 0, GPT-2 small) | 20/20 (mean confidence 0.963) |
 | Keyword filter | 14/20 |
 
+
 The probe detected all 20 paraphrased WMDP-bio questions, including 6 that contained no
 keywords from a standard dual-use biology keyword list. This suggests the probe is reading
 something in GPT-2's internal representations beyond surface vocabulary.
